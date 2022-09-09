@@ -30,7 +30,7 @@ RUN make installclient
 
 #FROM debian:stable-slim AS config
 
-#RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y \
 #	libasound2-dev \
 #  libpulse-dev \
 #  libvorbisidec-dev \
@@ -42,8 +42,10 @@ RUN make installclient
 #  libavahi-client-dev \
 #  avahi-daemon \
 #  libexpat1-dev \
-#  mosquitto-clients \
-#  nano 
+  mosquitto-clients \
+  nano \
+  man-db
+ 
 
 #COPY --from=snapbase /usr/bin/snapclient /usr/bin
 
