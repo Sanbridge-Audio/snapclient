@@ -25,7 +25,7 @@ RUN git clone https://github.com/badaix/snapcast.git && \
  
 WORKDIR /snapcast
 
-#RUN make
+RUN make
 RUN make installclient
 
 #FROM debian:stable-slim AS config
