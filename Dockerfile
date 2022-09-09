@@ -20,10 +20,10 @@ RUN apt-get update && apt-get install -y \
   libexpat1-dev \
   libboost-all-dev 
 
-RUN git clone https://github.com/badaix/snapcast.git && \
-  cd snapcast 
+RUN git clone https://github.com/badaix/snapcast.git #&& \
+#  cd snapcast 
  
-#WORKDIR /snapcast
+WORKDIR /snapcast
 
 RUN make
 RUN make installclient
