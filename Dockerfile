@@ -49,7 +49,7 @@ COPY --from=snapbase /usr/bin/snapclient /usr/bin
 
 RUN mkdir /usr/share/snapclient
 
-COPY --from=snapbase /usr/share/snapclient /usr/share/snapclient
+#COPY --from=snapbase /usr/share/snapclient /usr/share/snapclient
 
 #COPY snapserver.conf /etc
 
