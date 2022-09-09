@@ -26,7 +26,7 @@ RUN git clone https://github.com/badaix/snapcast.git && \
 WORKDIR /snapcast
 
 RUN make
-RUN make installserver
+RUN make installclient
 
 FROM debian:stable-slim AS config
 
@@ -51,11 +51,11 @@ RUN mkdir /usr/share/snapclient
 
 COPY --from=snapbase /usr/share/snapclient /usr/share/snapclient
 
-COPY snapserver.conf /etc
+#COPY snapserver.conf /etc
 
 VOLUME /tmp
 
-CMD ["snapserver", "--stdout", "--no-daemon"]
+CMD ["snapclient", "--stdout", "--no-daemon"]
 #ENTRYPOINT ["/init"]
 
 EXPOSE 1704 1705 1780
