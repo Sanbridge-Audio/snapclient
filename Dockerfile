@@ -30,24 +30,24 @@ RUN make installclient
 
 #FROM debian:stable-slim AS config
 
-RUN apt-get update && apt-get install -y \
-	libasound2-dev \
-  libpulse-dev \
-  libvorbisidec-dev \
-  libvorbis-dev \
-  libopus-dev \
-  libflac-dev \
-  libsoxr-dev \
-  alsa-utils \
-  libavahi-client-dev \
-  avahi-daemon \
-  libexpat1-dev \
-  mosquitto-clients \
-  nano 
+#RUN apt-get update && apt-get install -y \
+#	libasound2-dev \
+#  libpulse-dev \
+#  libvorbisidec-dev \
+#  libvorbis-dev \
+#  libopus-dev \
+#  libflac-dev \
+#  libsoxr-dev \
+#  alsa-utils \
+#  libavahi-client-dev \
+#  avahi-daemon \
+#  libexpat1-dev \
+#  mosquitto-clients \
+#  nano 
 
 #COPY --from=snapbase /usr/bin/snapclient /usr/bin
 
-RUN mkdir /usr/share/snapclient
+#RUN mkdir /usr/share/snapclient
 
 #COPY --from=snapbase /usr/share/snapclient /usr/share/snapclient
 
@@ -55,7 +55,7 @@ RUN mkdir /usr/share/snapclient
 
 #VOLUME /tmp
 
-CMD ["snapclient", "--stdout", "--no-daemon"]
+#CMD ["snapclient", "--stdout", "--no-daemon"]
 #ENTRYPOINT ["/init"]
 
-EXPOSE 1704 1705 1780
+#EXPOSE 1704 1705 1780
