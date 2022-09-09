@@ -3,7 +3,7 @@ LABEL maintainer "Matt Dickinson <matt@sanbridge.org>"
 
 ENV TZ=America/New_York
 
-#Installation of everything needed to setup snapserver
+#Installation of everything needed to setup snapcast
 RUN apt-get update && apt-get install -y \
 	git \
 	build-essential \
@@ -25,8 +25,8 @@ RUN git clone https://github.com/badaix/snapcast.git && \
  
 #WORKDIR /snapcast
 
-#RUN make
-#RUN make installclient
+RUN make
+RUN make installclient
 
 #WORKDIR /snapcast/client
 #RUN make
