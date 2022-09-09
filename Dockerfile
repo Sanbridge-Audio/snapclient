@@ -28,7 +28,7 @@ WORKDIR /snapcast
 RUN make
 RUN make installclient
 
-FROM debian:stable-slim AS config
+#FROM debian:stable-slim AS config
 
 RUN apt-get update && apt-get install -y \
 	libasound2-dev \
@@ -45,7 +45,7 @@ RUN apt-get update && apt-get install -y \
   mosquitto-clients \
   nano 
 
-COPY --from=snapbase /usr/bin/snapclient /usr/bin
+#COPY --from=snapbase /usr/bin/snapclient /usr/bin
 
 RUN mkdir /usr/share/snapclient
 
