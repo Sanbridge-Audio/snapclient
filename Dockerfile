@@ -34,12 +34,12 @@ RUN apt-get update && apt-get install -y \
  #&& cmake -S . -B build -DBOOST_ROOT=boost_1_78_0 -DCMAKE_CXX_COMPILER_LAUNCHER=ccache -DBUILD_WITH_PULSE=OFF -DCMAKE_BUILD_TYPE=Release -DBUILD_SERVER=OFF .. \
  #&& cmake --build build --parallel 3
 #RUN make
-RUN make installclient
+#RUN make installclient
 
 #WORKDIR /snapcast/client
 #RUN make
 #RUN make install
-
+RUN wget https://github.com/badaix/snapcast/releases/download/v0.26.0/snapclient_0.26.0-1_without-pulse_armhf.deb
 #FROM debian:stable-slim AS config
 
 RUN apt-get update && apt-get install -y \
