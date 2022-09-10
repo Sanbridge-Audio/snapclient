@@ -30,7 +30,8 @@ RUN git clone https://github.com/badaix/snapcast.git
 WORKDIR /snapcast
 
 
-
+RUN make
+RUN make installclient
 
 #WORKDIR /snapcast/client
 #RUN make
