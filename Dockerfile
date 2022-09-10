@@ -30,11 +30,7 @@ RUN apt-get update && apt-get install -y \
 #WORKDIR /snapcast
 
 
-#RUN wget https://boostorg.jfrog.io/artifactory/main/release/1.78.0/source/boost_1_78_0.tar.bz2 && tar -xvjf boost_1_78_0.tar.bz2 \
- #&& cmake -S . -B build -DBOOST_ROOT=boost_1_78_0 -DCMAKE_CXX_COMPILER_LAUNCHER=ccache -DBUILD_WITH_PULSE=OFF -DCMAKE_BUILD_TYPE=Release -DBUILD_SERVER=OFF .. \
- #&& cmake --build build --parallel 3
-#RUN make
-#RUN make installclient
+
 
 #WORKDIR /snapcast/client
 #RUN make
