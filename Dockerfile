@@ -18,7 +18,8 @@ RUN apt-get update && apt-get install -y \
   libavahi-client-dev \
   avahi-daemon \
   libexpat1-dev \
-  libboost-all-dev 
+  libboost-all-dev \
+  wget
 
 RUN git clone https://github.com/badaix/snapcast.git 
 #&& \
