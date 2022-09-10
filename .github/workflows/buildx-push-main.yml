@@ -34,7 +34,7 @@ jobs:
             --platform linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x \
             --output "type=image,push=false" \
             --tag crazymax/diun:latest \
-            --file ./Dockerfile-diun ./
+            --file ./Dockerfile ./
       -
         name: Login to DockerHub
         uses: docker/login-action@v1
@@ -49,8 +49,8 @@ jobs:
             --platform linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x \
             --output "type=image,push=true" \
             --tag crowsbyte/snapclient:latest \
-            --file ./Dockerfile-diun ./
+            
       -
         name: Inspect image
         run: |
-          docker buildx imagetools inspect crazymax/diun:latest
+          docker buildx imagetools inspect crowsbyte/snapclient:latest
