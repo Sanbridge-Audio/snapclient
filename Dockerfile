@@ -23,25 +23,21 @@ RUN apt-get update && apt-get install -y \
   ccache \
   wget
 
-RUN git clone https://github.com/badaix/snapcast.git 
+#RUN git clone https://github.com/badaix/snapcast.git 
 #&& \
 #  cd snapcast 
  
-WORKDIR /snapcast
+#WORKDIR /snapcast
 
 
-#RUN wget https://boostorg.jfrog.io/artifactory/main/release/1.78.0/source/boost_1_78_0.tar.bz2 && tar -xvjf boost_1_78_0.tar.bz2 \
-# && cmake -S . -B build -DBOOST_ROOT=boost_1_78_0 -DCMAKE_CXX_COMPILER_LAUNCHER=ccache -DBUILD_WITH_PULSE=OFF -DCMAKE_BUILD_TYPE=Release -DBUILD_SERVER=OFF .. \
-# && cmake --build build --parallel 3
-RUN make
-RUN make installclient
+
 
 #WORKDIR /snapcast/client
 #RUN make
 #RUN make install
-
+#RUN wget https://github.com/badaix/snapcast/releases/download/v0.26.0/snapclient_0.26.0-1_without-pulse_armhf.deb
 #FROM debian:stable-slim AS config
-
+RUN wget https://github.com/badaix/snapcast/releases/download/v0.26.0/snapclient_0.26.0-1_amd64.deb
 RUN apt-get update && apt-get install -y \
 #	libasound2-dev \
 #  libpulse-dev \
