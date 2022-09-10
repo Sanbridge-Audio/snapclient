@@ -41,7 +41,7 @@ RUN apt-get update && apt-get install -y \
 #RUN make install
 RUN wget https://github.com/badaix/snapcast/releases/download/v0.26.0/snapclient_0.26.0-1_without-pulse_armhf.deb
 #FROM debian:stable-slim AS config
-RUN wgethttps://github.com/badaix/snapcast/releases/download/v0.26.0/snapclient_0.26.0-1_amd64.deb
+RUN wget https://github.com/badaix/snapcast/releases/download/v0.26.0/snapclient_0.26.0-1_amd64.deb
 RUN apt-get update && apt-get install -y \
 #	libasound2-dev \
 #  libpulse-dev \
