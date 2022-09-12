@@ -39,7 +39,11 @@ RUN make installclient
 #RUN wget https://github.com/badaix/snapcast/releases/download/v0.26.0/snapclient_0.26.0-1_without-pulse_armhf.deb
 FROM debian:stable-slim AS config
 #RUN wget https://github.com/badaix/snapcast/releases/download/v0.26.0/snapclient_0.26.0-1_amd64.deb
+
+ARG TARGETARCH
+
 RUN apt-get update && apt-get install -y \
+#RUN apt-get update && apt-get install -y \
 	libasound2-dev \
   libpulse-dev \
   libvorbisidec-dev \
@@ -52,7 +56,10 @@ RUN apt-get update && apt-get install -y \
   avahi-daemon \
   libexpat1-dev \
   mosquitto-clients \
-  nano 
+  nano \
+  ${TARGETARCH} in \
+            "amd64")  S6_ARCH=amd64  ;; \
+            "arm64")  S6_ARCH=aarch64  ;; \
 #  man-db
  
  WORKDIR /
