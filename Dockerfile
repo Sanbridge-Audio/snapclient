@@ -92,8 +92,8 @@ ENV SNAPCLIENT_SOUNDCARD Headphones
 #    --cache "$LIBRESPOT_CACHE" 
 
 
-#CMD ["--stdout", "--no-daemon", "-h 192.168.1.198"]
-#ENTRYPOINT ["snapclient"]
+CMD ["--stdout", "--no-daemon", "-h 192.168.1.198"]
+ENTRYPOINT ["snapclient"]
 
 #CMD ["snapclient", "--stdout", "--no-daemon"]
 ##ENTRYPOINT ["/init"]
