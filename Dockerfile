@@ -40,17 +40,17 @@ RUN make installclient
 FROM debian:stable-slim AS config
 #RUN wget https://github.com/badaix/snapcast/releases/download/v0.26.0/snapclient_0.26.0-1_amd64.deb
 RUN apt-get update && apt-get install -y \
-#	libasound2-dev \
-#  libpulse-dev \
-#  libvorbisidec-dev \
-#  libvorbis-dev \
-#  libopus-dev \
-#  libflac-dev \
-#  libsoxr-dev \
-#  alsa-utils \
-#  libavahi-client-dev \
-#  avahi-daemon \
-#  libexpat1-dev \
+	libasound2-dev \
+  libpulse-dev \
+  libvorbisidec-dev \
+  libvorbis-dev \
+  libopus-dev \
+  libflac-dev \
+  libsoxr-dev \
+  alsa-utils \
+  libavahi-client-dev \
+  avahi-daemon \
+  libexpat1-dev \
   mosquitto-clients \
   nano \
   man-db
