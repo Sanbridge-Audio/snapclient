@@ -40,7 +40,7 @@ RUN make installclient
 FROM debian:stable-slim AS config
 #RUN wget https://github.com/badaix/snapcast/releases/download/v0.26.0/snapclient_0.26.0-1_amd64.deb
 
-ARG TARGETARCH
+#ARG TARGETARCH
 
 RUN apt-get update && apt-get install -y \
 #RUN apt-get update && apt-get install -y \
@@ -56,10 +56,8 @@ RUN apt-get update && apt-get install -y \
   avahi-daemon \
   libexpat1-dev \
   mosquitto-clients \
-  nano \
-  ${TARGETARCH} in \
-            "amd64")  S6_ARCH=amd64  ;; \
-            "arm64")  S6_ARCH=aarch64  ;; \
+  nano
+
 #  man-db
  
  WORKDIR /
