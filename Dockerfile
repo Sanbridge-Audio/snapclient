@@ -37,7 +37,7 @@ RUN make installclient
 #RUN make
 #RUN make install
 #RUN wget https://github.com/badaix/snapcast/releases/download/v0.26.0/snapclient_0.26.0-1_without-pulse_armhf.deb
-#FROM debian:stable-slim AS config
+FROM debian:stable-slim AS config
 #RUN wget https://github.com/badaix/snapcast/releases/download/v0.26.0/snapclient_0.26.0-1_amd64.deb
 RUN apt-get update && apt-get install -y \
 #	libasound2-dev \
@@ -56,8 +56,10 @@ RUN apt-get update && apt-get install -y \
   man-db
  
  WORKDIR /
+ 
+#RUN mkdir / 
 
-#COPY --from=snapbase /usr/bin/snapclient /usr/bin
+COPY --from=snapbase /usr/bin/snapclient /usr/bin
 
 #RUN mkdir /usr/share/snapclient
 
@@ -67,7 +69,7 @@ RUN apt-get update && apt-get install -y \
 
 #VOLUME /tmp
 ENV SNAPCLIENT_HOST 192.168.1.198
-ENV SNAPCLIENT_SOUNDCARD headphones
+ENV SNAPCLIENT_SOUNDCARD Headphones
 #ENV LIBRESPOT_NAME librespot
 #ENV LIBRESPOT_DEVICE /data/fifo
 #ENV LIBRESPOT_DEVICE /tmp/snapfifo
@@ -75,7 +77,8 @@ ENV SNAPCLIENT_SOUNDCARD headphones
 #ENV LIBRESPOT_BITRATE 320
 #ENV LIBRESPOT_INITVOL 100
 
-CMD -h "$SNAPCLIENT_HOST" \
+CMD snapclient \
+	-h "$SNAPCLIENT_HOST" \
 	-s "$SNAPCLIENT_SOUNDCARD"
 #    --device "$LIBRESPOT_DEVICE" \
 #    --backend "$LIBRESPOT_BACKEND" \
@@ -84,6 +87,6 @@ CMD -h "$SNAPCLIENT_HOST" \
 #    --cache "$LIBRESPOT_CACHE" 
 
 #CMD ["--stdout", "--no-daemon", "-h 192.168.1.198"]
-ENTRYPOINT ["snapclient"]
+#ENTRYPOINT ["init"]
 
 EXPOSE 1704 1705 1780
