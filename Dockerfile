@@ -1,7 +1,7 @@
 FROM debian:stable AS snapbase
 LABEL maintainer "Matt Dickinson <matt@sanbridge.org>"
 
-ENV TZ=America/New_York
+#ENV TZ=America/New_York
 
 #Installation of everything needed to setup snapcast
 RUN apt-get update && apt-get install -y \
