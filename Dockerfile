@@ -67,7 +67,7 @@ RUN apt-get update && apt-get install -y \
 
 #VOLUME /tmp
 
-CMD ["snapclient", "--stdout", "--no-daemon"]
+CMD ["snapclient", "--stdout", "--no-daemon", "-h 192.168.1.198"]
 #ENTRYPOINT ["/init"]
 
 #EXPOSE 1704 1705 1780
