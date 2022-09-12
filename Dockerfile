@@ -52,8 +52,8 @@ RUN apt-get update && apt-get install -y \
   avahi-daemon \
   libexpat1-dev \
   mosquitto-clients \
-  nano \
-  man-db
+  nano 
+#  man-db
  
  WORKDIR /
  
