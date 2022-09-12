@@ -55,7 +55,7 @@ RUN apt-get update && apt-get install -y \
   nano \
   man-db
  
- WORKDIR ./
+ WORKDIR /
 
 #COPY --from=snapbase /usr/bin/snapclient /usr/bin
 
