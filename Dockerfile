@@ -77,16 +77,16 @@ ENV SNAPCLIENT_SOUNDCARD Headphones
 #ENV LIBRESPOT_BITRATE 320
 #ENV LIBRESPOT_INITVOL 100
 
-CMD snapclient \
-	-h "$SNAPCLIENT_HOST" \
-	-s "$SNAPCLIENT_SOUNDCARD"
+#CMD snapclient \
+#	-h "$SNAPCLIENT_HOST" \
+#	-s "$SNAPCLIENT_SOUNDCARD"
 #    --device "$LIBRESPOT_DEVICE" \
 #    --backend "$LIBRESPOT_BACKEND" \
 #    --bitrate "$LIBRESPOT_BITRATE" \
 #    --initial-volume "$LIBRESPOT_INITVOL" \
 #    --cache "$LIBRESPOT_CACHE" 
 
-#CMD ["--stdout", "--no-daemon", "-h 192.168.1.198"]
-#ENTRYPOINT ["init"]
+CMD ["--stdout", "--no-daemon", "-h 192.168.1.198"]
+ENTRYPOINT ["snapclient"]
 
 EXPOSE 1704 1705 1780
