@@ -1,8 +1,8 @@
 name: build-arm
- on:
-   push:
-     branches: ['main']
- jobs:
+on:
+  push:
+    branches: ['main']
+jobs:
    docker:
      runs-on: ubuntu-latest
      steps:
