@@ -86,7 +86,7 @@ ENV SNAPCLIENT_SOUNDCARD Headphones
 #    --initial-volume "$LIBRESPOT_INITVOL" \
 #    --cache "$LIBRESPOT_CACHE" 
 
-CMD ["--stdout", "--no-daemon", "-h 192.168.1.198"]
-ENTRYPOINT ["snapclient"]
+#CMD ["--stdout", "--no-daemon", "-h 192.168.1.198"]
+#ENTRYPOINT ["snapclient"]
 
 EXPOSE 1704 1705 1780
