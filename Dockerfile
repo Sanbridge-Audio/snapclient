@@ -66,8 +66,22 @@ RUN apt-get update && apt-get install -y \
 #COPY snapserver.conf /etc
 
 #VOLUME /tmp
+ENV SNAPCLIENT_HOST 192.168.1.198
+#ENV LIBRESPOT_NAME librespot
+#ENV LIBRESPOT_DEVICE /data/fifo
+#ENV LIBRESPOT_DEVICE /tmp/snapfifo
+#ENV LIBRESPOT_BACKEND pipe
+#ENV LIBRESPOT_BITRATE 320
+#ENV LIBRESPOT_INITVOL 100
 
-CMD ["--stdout", "--no-daemon", "-h 192.168.1.198"]
+CMD -h "$SNAPCLIENT_HOST" \
+#    --device "$LIBRESPOT_DEVICE" \
+#    --backend "$LIBRESPOT_BACKEND" \
+#    --bitrate "$LIBRESPOT_BITRATE" \
+#    --initial-volume "$LIBRESPOT_INITVOL" \
+#    --cache "$LIBRESPOT_CACHE" 
+
+#CMD ["--stdout", "--no-daemon", "-h 192.168.1.198"]
 ENTRYPOINT ["snapclient"]
 
-#EXPOSE 1704 1705 1780
+EXPOSE 1704 1705 1780
