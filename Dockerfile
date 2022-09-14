@@ -57,6 +57,7 @@ RUN apt-get update && apt-get install -y \
   libexpat1-dev \
   mosquitto-clients \
   avahi-daemon \
+  git \
   nano
 
 #  man-db
