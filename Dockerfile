@@ -33,46 +33,36 @@ WORKDIR /snapcast
 RUN make
 RUN make installclient
 
-#WORKDIR /snapcast/client
-#RUN make
-#RUN make install
-#RUN wget https://github.com/badaix/snapcast/releases/download/v0.26.0/snapclient_0.26.0-1_without-pulse_armhf.deb
 FROM debian:stable-slim AS config
-#RUN wget https://github.com/badaix/snapcast/releases/download/v0.26.0/snapclient_0.26.0-1_amd64.deb
 
-#ARG TARGETARCH
 
 RUN apt-get update && apt-get install -y \
-#RUN apt-get update && apt-get install -y \
 	libasound2-dev \
-  libpulse-dev \
-  libvorbisidec-dev \
-  libvorbis-dev \
-  libopus-dev \
-  libflac-dev \
-  libsoxr-dev \
-  alsa-utils \
-  libavahi-client-dev \
-  avahi-daemon \
-  libexpat1-dev \
-  mosquitto-clients \
-  avahi-daemon \
-  git \
-  nano
+	libpulse-dev \
+	libvorbisidec-dev \
+	libvorbis-dev \
+	libopus-dev \
+	libflac-dev \
+	libsoxr-dev \
+	alsa-utils \
+	libavahi-client-dev \
+	avahi-daemon \
+	libexpat1-dev \
+	mosquitto-clients \
+	avahi-daemon \
+	git \
+	wget \
+	nano
 
-#  man-db
- 
- WORKDIR /
- 
-#RUN mkdir / 
+WORKDIR /
+
+ADD https://github.com/just-containers/s6-overlay/releases/download/v3.1.0.1/s6-overlay-noarch.tar.xz /tmp
+RUN tar -C / -Jxpf /tmp/s6-overlay-noarch.tar.xz
+ADD https://github.com/just-containers/s6-overlay/releases/download/v3.1.0.1/s6-overlay-x86_64.tar.xz /tmp
+RUN tar -C / -Jxpf /tmp/s6-overlay-x86_64.tar.xz 
 
 COPY --from=snapbase /usr/bin/snapclient /usr/bin
 
-#RUN mkdir /usr/share/snapclient
-
-#COPY --from=snapbase /usr/share/snapclient /usr/share/snapclient
-
-#COPY snapserver.conf /etc
 
 #VOLUME /tmp
 ENV SNAPCLIENT_HOST 192.168.1.198
