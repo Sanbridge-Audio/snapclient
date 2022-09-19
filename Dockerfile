@@ -89,7 +89,7 @@ ENV SNAPCLIENT_SOUNDCARD Headphones
 #CMD ["snapclient","--stdout","--no-daemon","-h 192.168.1.198"]
 #ENTRYPOINT ["snapclient"]
 
-CMD ["snapclient","-h 192.168.1.198","--stdout","--no-daemon"]
+CMD ["snapclient","-h" "192.168.1.198","--stdout","--no-daemon"]
 ENTRYPOINT ["/init"]
 
 
