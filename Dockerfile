@@ -58,7 +58,7 @@ WORKDIR /
 
 ADD https://github.com/just-containers/s6-overlay/releases/download/v3.1.0.1/s6-overlay-noarch.tar.xz /tmp
 RUN tar -C / -Jxpf /tmp/s6-overlay-noarch.tar.xz
-ADD https://github.com/just-containers/s6-overlay/releases/download/v3.1.0.1/s6-overlay-x86_64.tar.xz /tmp
+ADD https://github.com/just-containers/s6-overlay/releases/download/v3.1.2.1/s6-overlay-arm.tar.xz /tmp
 RUN tar -C / -Jxpf /tmp/s6-overlay-x86_64.tar.xz 
 
 
