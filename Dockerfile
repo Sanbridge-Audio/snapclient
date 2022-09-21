@@ -56,8 +56,8 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /
 
-ADD https://github.com/just-containers/s6-overlay/releases/download/v3.1.0.1/s6-overlay-noarch.tar.xz /tmp
-RUN tar -C / -Jxpf /tmp/s6-overlay-noarch.tar.xz
+#ADD https://github.com/just-containers/s6-overlay/releases/download/v3.1.0.1/s6-overlay-noarch.tar.xz /tmp
+#RUN tar -C / -Jxpf /tmp/s6-overlay-noarch.tar.xz
 #ADD https://github.com/just-containers/s6-overlay/releases/download/v3.1.2.1/s6-overlay-arm.tar.xz /tmp
 #RUN tar -C / -Jxpf /tmp/s6-overlay-x86_64.tar.xz 
 
@@ -89,8 +89,6 @@ ENV SNAPCLIENT_SOUNDCARD Headphones
 #CMD ["snapclient","--stdout","--no-daemon","-h 192.168.1.198"]
 #ENTRYPOINT ["snapclient"]
 
-CMD ["snapclient","-h" "192.168.1.198","--stdout","--no-daemon"]
-ENTRYPOINT ["/init"]
+CMD ["-h" "192.168.1.198","-s" "$SNAPCLIENT_SOUNDCARD","--stdout","--no-daemon"]
+ENTRYPOINT ["snapclient"]
 
-
-#EXPOSE 1704 1705 1780
