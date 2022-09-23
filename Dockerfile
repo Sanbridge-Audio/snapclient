@@ -90,5 +90,5 @@ ENV SNAPCLIENT_SOUNDCARD Headphones
 #ENTRYPOINT ["snapclient"]
 
 CMD ["-h" "192.168.1.198","-s" "$SNAPCLIENT_SOUNDCARD","--stdout","--no-daemon"]
-ENTRYPOINT ["snapclient"]
+ENTRYPOINT ["snapclient"] 
 
