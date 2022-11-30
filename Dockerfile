@@ -1,7 +1,5 @@
 FROM debian:stable AS snapbase
-LABEL maintainer "Matt Dickinson <matt@sanbridge.org>"
-
-#ENV TZ=America/New_York
+LABEL maintainer "Matt Dickinson"
 
 #Installation of everything needed to setup snapcast
 RUN apt-get update && apt-get install -y \
@@ -65,29 +63,7 @@ WORKDIR /
 
 COPY --from=snapbase /usr/bin/snapclient /usr/bin
 
-
-#VOLUME /tmp 
-#ENV SNAPCLIENT_HOST 192.168.1.198
-#ENV SNAPCLIENT_SOUNDCARD Headphones
-#ENV LIBRESPOT_NAME librespot
-#ENV LIBRESPOT_DEVICE /data/fifo
-#ENV LIBRESPOT_DEVICE /tmp/snapfifo
-#ENV LIBRESPOT_BACKEND pipe
-#ENV LIBRESPOT_BITRATE 320
-#ENV LIBRESPOT_INITVOL 100
-
-#CMD snapclient \
-#	-h "$SNAPCLIENT_HOST" \
-#	-s "$SNAPCLIENT_SOUNDCARD"
-#    --device "$LIBRESPOT_DEVICE" \
-#    --backend "$LIBRESPOT_BACKEND" \
-#    --bitrate "$LIBRESPOT_BITRATE" \
-#    --initial-volume "$LIBRESPOT_INITVOL" \
-#    --cache "$LIBRESPOT_CACHE" 
-
-
-#CMD ["snapclient","--stdout","--no-daemon","-h 192.168.1.198"]
-#ENTRYPOINT ["snapclient"]
+ENV TZ=America/New_York
 
 CMD ["-h" "192.168.1.198","--stdout","--no-daemon"]
 ENTRYPOINT ["snapclient"] 
