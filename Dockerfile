@@ -89,6 +89,6 @@ COPY --from=snapbase /usr/bin/snapclient /usr/bin
 #CMD ["snapclient","--stdout","--no-daemon","-h 192.168.1.198"]
 #ENTRYPOINT ["snapclient"]
 
-CMD ["-h" "192.168.1.198","-s" "$SNAPCLIENT_SOUNDCARD","--stdout","--no-daemon"]
+CMD ["-h" "192.168.1.198","--stdout","--no-daemon"]
 ENTRYPOINT ["snapclient"] 
 
