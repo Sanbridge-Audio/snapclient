@@ -65,6 +65,6 @@ COPY --from=snapbase /usr/bin/snapclient /usr/bin
 
 ENV TZ=America/New_York
 
-CMD ["-h" "192.168.1.198","--stdout","--no-daemon"]
+#CMD ["-h" "192.168.1.198","--stdout","--no-daemon"]
 ENTRYPOINT ["snapclient"] 
 
