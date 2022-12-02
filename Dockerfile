@@ -64,7 +64,9 @@ WORKDIR /
 COPY --from=snapbase /usr/bin/snapclient /usr/bin
 
 ENV TZ=America/New_York
+ENV SNAPCLIENT_SOUNDCARD ""
+ENV SNAPCLIENT_HOST ""
 
-#CMD ["-h" "192.168.1.198","--stdout","--no-daemon"]
+CMD ["-h" "$SNAPCLIENT_HOST","-s" "SNAPCLIENT_SOUNDCARD"]
 ENTRYPOINT ["snapclient"] 
 
