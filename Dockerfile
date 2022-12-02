@@ -66,7 +66,16 @@ COPY --from=snapbase /usr/bin/snapclient /usr/bin
 ENV TZ=America/New_York
 ENV SNAPCLIENT_SOUNDCARD ""
 ENV SNAPCLIENT_HOST ""
+ENV HOSTID ""
 
-CMD ["-h" "$SNAPCLIENT_HOST","-s" "SNAPCLIENT_SOUNDCARD"]
-ENTRYPOINT ["snapclient"] 
+
+CMD snapclient \
+    --host "$SNAPCLIENT_HOST" \
+    --soundcard "$SNAPCLIENT_SOUNDCARD" \
+    --hostID arg "$HOSTID"	
+
+#CMD ["sh", "-c", "echo ${MY_HOME}"]
+#CMD ["sh", "-c", "echo ${SNAPCLIENT_HOST}]
+#CMD ["-h" "$SNAPCLIENT_HOST","-s" "SNAPCLIENT_SOUNDCARD"]
+#ENTRYPOINT ["snapclient"] 
 
