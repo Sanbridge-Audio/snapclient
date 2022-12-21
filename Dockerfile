@@ -72,7 +72,7 @@ ENV HOSTID ""
 CMD snapclient \
     --host "$SNAPCLIENT_HOST" \
     --soundcard "$SNAPCLIENT_SOUNDCARD" \
-    --hostID arg "$HOSTID"	
+    --hostID "$HOSTID"	
 
 #CMD ["sh", "-c", "echo ${MY_HOME}"]
 #CMD ["sh", "-c", "echo ${SNAPCLIENT_HOST}]
