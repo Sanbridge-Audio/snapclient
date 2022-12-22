@@ -74,8 +74,3 @@ CMD snapclient \
     --soundcard "$SNAPCLIENT_SOUNDCARD" \
     --hostID "$HOSTID"	
 
-#CMD ["sh", "-c", "echo ${MY_HOME}"]
-#CMD ["sh", "-c", "echo ${SNAPCLIENT_HOST}]
-#CMD ["-h" "$SNAPCLIENT_HOST","-s" "SNAPCLIENT_SOUNDCARD"]
-#ENTRYPOINT ["snapclient"] 
-
