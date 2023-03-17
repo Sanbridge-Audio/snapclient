@@ -1,0 +1,31 @@
+FROM debian:stable AS snapbase
+LABEL maintainer "Matt Dickinson"
+
+#Installation of everything needed to setup snapcast
+RUN apt-get update && apt-get install -y \
+	alsa-utils \
+	avahi-daemon \
+	ccache \
+	cmake \
+	build-essential \
+	git \
+	libasound2-dev \
+	libpulse-dev \
+	libvorbisidec-dev \
+	libvorbis-dev \
+	libopus-dev \
+	libflac-dev \
+	libsoxr-dev \
+	libavahi-client-dev \
+	libexpat1-dev \
+	libboost-all-dev \
+	wget
+
+RUN git clone https://github.com/badaix/snapcast.git 
+#&& \
+#  cd snapcast 
+ 
+WORKDIR /snapcast/client
+
+
+RUN make
