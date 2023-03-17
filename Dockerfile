@@ -25,11 +25,11 @@ RUN git clone https://github.com/badaix/snapcast.git
 #&& \
 #  cd snapcast 
  
-WORKDIR /snapcast
+WORKDIR /snapcast/client
 
 
 RUN make
-RUN make installclient
+#RUN make installclient
 
 FROM debian:stable-slim AS config
 ARG S6_OVERLAY_VERSION=3.1.4.1
