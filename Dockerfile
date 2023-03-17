@@ -31,7 +31,7 @@ WORKDIR /snapcast/client
 RUN make
 #RUN make installclient
 
-FROM debian:stable-slim AS config
+#FROM debian:stable-slim AS config
 ARG S6_OVERLAY_VERSION=3.1.4.1
 
 ADD https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-noarch.tar.xz /tmp
@@ -59,7 +59,7 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /
 
-COPY --from=snapbase /usr/bin/snapclient /usr/bin
+#COPY --from=snapbase /usr/bin/snapclient /usr/bin
 
 ENV TZ=America/New_York
 ENV SNAPCLIENT_SOUNDCARD ""
