@@ -21,15 +21,19 @@ RUN apt-get update && apt-get install -y \
 	libboost-all-dev \
 	wget
 
-RUN git clone https://github.com/badaix/snapcast.git 
+#RUN git clone https://github.com/badaix/snapcast.git 
 #&& \
 #  cd snapcast 
  
-WORKDIR /snapcast/client
+#WORKDIR /snapcast/client
 
 
-RUN make
+#RUN make
 #RUN make installclient
+WORKDIR /tmp
+WGET https://github.com/badaix/snapcast/releases/download/v0.27.0/snapclient_0.27.0-1_without-pulse_armhf.deb
+
+
 
 FROM debian:stable-slim AS config
 ARG S6_OVERLAY_VERSION=3.1.4.1
