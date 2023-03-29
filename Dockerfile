@@ -31,9 +31,9 @@ RUN apt-get update && apt-get install -y \
 #RUN make
 #RUN make installclient
 WORKDIR /tmp
-WGET https://github.com/badaix/snapcast/releases/download/v0.27.0/snapclient_0.27.0-1_without-pulse_armhf.deb
-
-
+RUN wget https://github.com/badaix/snapcast/releases/download/v0.27.0/snapclient_0.27.0-1_without-pulse_armhf.deb
+RUN dpkg -i snapclient_0.27.0-1_without-pulse_armhf.deb
+RUN apt -f install
 
 FROM debian:stable-slim AS config
 ARG S6_OVERLAY_VERSION=3.1.4.1
