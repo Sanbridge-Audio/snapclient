@@ -36,7 +36,7 @@ RUN dpkg -i snapclient_0.27.0-1_without-pulse_armhf.deb
 RUN apt -f install
 
 FROM debian:stable-slim AS config
-ARG S6_OVERLAY_VERSION=3.1.4.1
+ARG S6_OVERLAY_VERSION=3.1.4.2
 ARG TARGETARCH=armv7l
 ENV ARCH=armhf
 
