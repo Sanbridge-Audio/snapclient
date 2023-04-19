@@ -57,8 +57,8 @@ RUN apt-get update && apt-get install -y \
 	nano \
 	wget \
 	xz-utils \
-#	gcc
-	snapclient	
+	gcc
+#	snapclient	
 
 WORKDIR /
 
