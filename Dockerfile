@@ -57,8 +57,8 @@ RUN apt-get update && apt-get install -y \
 	nano \
 	wget \
 	xz-utils \
-	gcc
-	
+#	gcc
+	snapclient	
 
 WORKDIR /
 
@@ -70,7 +70,7 @@ RUN tar -C / -Jxpf /tmp/s6-overlay-${ARCH}.tar.xz
 
 WORKDIR /
 
-COPY --from=snapbase /usr/bin/snapclient /usr/bin
+#COPY --from=snapbase /usr/bin/snapclient /usr/bin
 
 ENV TZ=America/New_York
 ENV SNAPCLIENT_SOUNDCARD ""
