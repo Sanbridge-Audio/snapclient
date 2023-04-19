@@ -70,7 +70,7 @@ RUN tar -C / -Jxpf /tmp/s6-overlay-${ARCH}.tar.xz
 
 WORKDIR /
 
-#COPY --from=snapbase /usr/bin/snapclient /usr/bin
+COPY --from=snapbase /usr/bin/snapclient /usr/bin
 
 ENV TZ=America/New_York
 ENV SNAPCLIENT_SOUNDCARD ""
@@ -83,5 +83,5 @@ CMD snapclient \
     --soundcard "$SNAPCLIENT_SOUNDCARD" \
     --hostID "$HOSTID"	
 
-ENTRYPOINT ["/init"]
+#ENTRYPOINT ["/init"]
 
