@@ -10,4 +10,10 @@ services:
       - /run/user/1000/pulse:/run/user/1000/pulse
     devices:
       - /dev/snd:/dev/snd
-
+    environment:
+      - TZ=America/New_York
+ #     - SNAPCLIENT_SOUNDCARD=""
+      - SNAPCLIENT_HOST="Pulse"
+      - HOSTID="192.168.1.198"
+      - PULSE_SERVER=unix:/run/user/1000/pulse/native
+      - PULSE_SINK=snapcast
