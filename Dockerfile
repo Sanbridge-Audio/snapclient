@@ -15,7 +15,7 @@ ENV PULSE_SINK=snapcast
 #CMD ["snapclient", "-d"]
 
 ENV TZ=America/New_York 
-ENV SNAPCLIENT_SOUNDCARD "" 
+#ENV SNAPCLIENT_SOUNDCARD "" 
 ENV SNAPCLIENT_HOST "" 
 ENV HOSTID "" 
   
