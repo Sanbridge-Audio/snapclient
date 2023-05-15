@@ -22,7 +22,9 @@ RUN apt-get update && apt-get install -y \
 	wget \
 	xz-utils \
 #	gcc
-	snapclient	
+	snapclient	\
+pulseaudio \
+pulseaudio-utils 
 
 WORKDIR /
 
