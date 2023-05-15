@@ -17,3 +17,4 @@ services:
       - HOSTID="192.168.1.198"
       - PULSE_SERVER=unix:/run/user/1000/pulse/native
       - PULSE_SINK=snapcast
+image: mini-snapclient. 
