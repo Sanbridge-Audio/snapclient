@@ -3,6 +3,7 @@ FROM debian
 RUN apt-get update && apt-get install -y \
     snapclient \
     pulseaudio-utils \
+    pulseaudio \
     && rm -rf /var/lib/apt/lists/*
 
 RUN useradd -ms /bin/bash snapclient
