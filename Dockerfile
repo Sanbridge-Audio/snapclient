@@ -22,5 +22,5 @@ ENV HOSTID ""
   
 CMD snapclient \ 
     --host "$SNAPCLIENT_HOST" \ 
-    --soundcard "$SNAPCLIENT_SOUNDCARD" \ 
+ #   --soundcard "$SNAPCLIENT_SOUNDCARD" \ 
     --hostID "$HOSTID"        
