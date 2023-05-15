@@ -1,1 +1,13 @@
+version: '3'
+
+services:
+  snapclient:
+    build: .
+    container_name: snapclient
+    restart: always
+    network_mode: host
+    volumes:
+      - /run/user/1000/pulse:/run/user/1000/pulse
+    devices:
+      - /dev/snd:/dev/snd
 
