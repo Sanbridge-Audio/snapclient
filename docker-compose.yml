@@ -8,6 +8,7 @@ services:
     network_mode: host
     volumes:
       - /run/user/1000/pulse:/run/user/1000/pulse
+      - ./snapclient.conf:/etc/default/snapclient.conf
     devices:
       - /dev/snd:/dev/snd
     environment:
