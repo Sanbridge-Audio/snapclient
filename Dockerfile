@@ -12,4 +12,14 @@ RUN apt-get update && \
     pulseaudio && \
     rm -rf /var/lib/apt/lists/*
 
-CMD ["snapclient", "-d"]
+#CMD ["snapclient", "-d"]
+ENV TZ=America/New_York 
+ENV SNAPCLIENT_SOUNDCARD "" 
+ENV SNAPCLIENT_HOST 192.168.1.198
+ENV HOSTID "Pulse"
+  
+  
+ CMD snapclient \ 
+     --host "$SNAPCLIENT_HOST" \ 
+     --soundcard "$SNAPCLIENT_SOUNDCARD" \ 
+     --hostID "$HOSTID"        
