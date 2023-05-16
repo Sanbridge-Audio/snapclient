@@ -13,7 +13,7 @@ services:
     environment:
       - TZ=America/New_York
       - SNAPCLIENT_SOUNDCARD=""
-      - SNAPCLIENT_HOST="192.168.1.198"
+      - SNAPCLIENT_HOST=192.168.1.198
       - HOSTID=""
       - PULSE_SERVER=unix:/run/user/1000/pulse/native
       - PULSE_SINK=snapcast
