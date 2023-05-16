@@ -4,7 +4,7 @@ services:
   snapclient:
     build: .
     container_name: snapclient-mini
-    restart: always
+    restart: unless-stopped
     network_mode: host
     volumes:
  #     - /run/user/1000/pulse:/run/user/1000/pulse
