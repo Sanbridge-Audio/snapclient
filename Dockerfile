@@ -9,8 +9,8 @@ RUN apt-get update && apt-get install -y \
 RUN useradd -ms /bin/bash snapclient
 
 
-RUN usermod -aG sudo snapclient 
-USER snapclient
+#RUN usermod -aG sudo snapclient 
+#USER snapclient
 
 ENV PULSE_SERVER=unix:/run/user/1000/pulse/native
 ENV PULSE_SINK=snapcast
@@ -22,12 +22,14 @@ ENV TZ=America/New_York
 # ENV SNAPCLIENT_HOST "" 
 # ENV HOSTID "" 
 
+USER root
 RUN apt-get update && apt-get install -y \
   avahi-daemon \
   avahi-utils
 
 RUN service avahi-daemon start
 
+USER snapclient 
 CMD ["snapclient"] 
  
 
