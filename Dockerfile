@@ -23,8 +23,9 @@ ENV TZ=America/New_York
 # ENV HOSTID "" 
 
 
-CMD ["snapclient"] 
+#CMD ["snapclient"] 
  
+CMD ["snapclient", "-d"]
 
  
  #CMD snapclient \ 
