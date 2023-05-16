@@ -20,4 +20,4 @@ services:
       - HOSTID="Pulse" 
       - PULSE_SERVER=unix:/run/user/1000/pulse/native
       - PULSE_SINK=snapcast
-    image: mini-snapclient
+#    image: mini-snapclient
