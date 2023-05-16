@@ -13,14 +13,14 @@ USER snapclient
 ENV PULSE_SERVER=unix:/run/user/1000/pulse/native
 ENV PULSE_SINK=snapcast
 
-CMD ["snapclient"]
+#CMD ["snapclient"]
 
 ENV TZ=America/New_York 
 # ENV SNAPCLIENT_SOUNDCARD "" 
 # ENV SNAPCLIENT_HOST "" 
 # ENV HOSTID "" 
   
-CMD ["&&", "avahi-daemon"]
+CMD /bin/bash -c "snapclient && avahi-daemon -D"
  
  #CMD snapclient \ 
  #    --host "$SNAPCLIENT_HOST" \ 
