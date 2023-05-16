@@ -13,15 +13,15 @@ USER snapclient
 ENV PULSE_SERVER=unix:/run/user/1000/pulse/native
 ENV PULSE_SINK=snapcast
 
-#CMD ["snapclient", "-d"]
+CMD ["snapclient", "-d"]
 
 ENV TZ=America/New_York 
- ENV SNAPCLIENT_SOUNDCARD "" 
- ENV SNAPCLIENT_HOST "" 
- ENV HOSTID "" 
+# ENV SNAPCLIENT_SOUNDCARD "" 
+# ENV SNAPCLIENT_HOST "" 
+# ENV HOSTID "" 
   
   
- CMD snapclient \ 
-     --host "$SNAPCLIENT_HOST" \ 
-     --soundcard "$SNAPCLIENT_SOUNDCARD" \ 
-     --hostID "$HOSTID"        
+ #CMD snapclient \ 
+ #    --host "$SNAPCLIENT_HOST" \ 
+ #    --soundcard "$SNAPCLIENT_SOUNDCARD" \ 
+ #    --hostID "$HOSTID"        
