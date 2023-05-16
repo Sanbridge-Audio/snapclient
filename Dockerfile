@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y \
     pulseaudio \
     && rm -rf /var/lib/apt/lists/*
 
-RUN useradd -ms /bin/bash snapclient
+#RUN useradd -ms /bin/bash snapclient
 
 
 #RUN usermod -aG sudo snapclient 
@@ -22,12 +22,6 @@ ENV TZ=America/New_York
 # ENV SNAPCLIENT_HOST "" 
 # ENV HOSTID "" 
 
-USER root
-RUN apt-get update && apt-get install -y \
-  avahi-daemon \
-  avahi-utils
-
-RUN service avahi-daemon start
 
 USER snapclient 
 CMD ["snapclient"] 
