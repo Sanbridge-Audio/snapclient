@@ -20,7 +20,8 @@ ENV TZ=America/New_York
 # ENV SNAPCLIENT_HOST "" 
 # ENV HOSTID "" 
   
-  
+CMD ["&&", "avahi-daemon"]
+ 
  #CMD snapclient \ 
  #    --host "$SNAPCLIENT_HOST" \ 
  #    --soundcard "$SNAPCLIENT_SOUNDCARD" \ 
