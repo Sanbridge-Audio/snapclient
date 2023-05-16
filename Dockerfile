@@ -20,13 +20,12 @@ ENV TZ=America/New_York
 # ENV SNAPCLIENT_HOST "" 
 # ENV HOSTID "" 
 
-RUN apt-get update && apt-get install -y avahi-daemon
+#RUN apt-get update && apt-get install -y avahi-daemon
 RUN service avahi-daemon start
 
 CMD ["snapclient"] 
  
-  
-#CMD /bin/bash -c "snapclient && avahi-daemon -D"
+
  
  #CMD snapclient \ 
  #    --host "$SNAPCLIENT_HOST" \ 
