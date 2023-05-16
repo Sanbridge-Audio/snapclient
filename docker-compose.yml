@@ -1,8 +1,9 @@
 version: '3'
+
 services:
   snapclient:
     build: .
-    container_name: snapclient-pulse
+    container_name: snapclient
     restart: always
     network_mode: host
     volumes:
@@ -11,8 +12,9 @@ services:
       - /dev/snd:/dev/snd
     environment:
       - TZ=America/New_York
-      - SNAPCLIENT_HOST="Pulse"
-      - HOSTID="192.168.1.198"
+      - SNAPCLIENT_SOUNDCARD=""
+      - SNAPCLIENT_HOST=""
+      - HOSTID=""
       - PULSE_SERVER=unix:/run/user/1000/pulse/native
       - PULSE_SINK=snapcast
     image: mini-snapclient
