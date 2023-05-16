@@ -23,7 +23,6 @@ ENV TZ=America/New_York
 # ENV HOSTID "" 
 
 
-USER snapclient 
 CMD ["snapclient"] 
  
 
