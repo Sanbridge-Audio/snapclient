@@ -13,7 +13,7 @@ USER snapclient
 ENV PULSE_SERVER=unix:/run/user/1000/pulse/native
 ENV PULSE_SINK=snapcast
 
-CMD ["snapclient"]
+#CMD ["snapclient"]
 
 ENV TZ=America/New_York 
 # ENV SNAPCLIENT_SOUNDCARD "" 
@@ -23,6 +23,8 @@ ENV TZ=America/New_York
 RUN apt-get update && apt-get install -y avahi-daemon
 RUN service avahi-daemon start
 
+CMD ["snapclient"] 
+ 
   
 #CMD /bin/bash -c "snapclient && avahi-daemon -D"
  
