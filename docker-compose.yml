@@ -6,7 +6,7 @@ services:
     container_name: snapclient-mini
     restart: unless-stopped
     network_mode: host
-    volumes:
+  #  volumes:
  #     - /run/user/1000/pulse:/run/user/1000/pulse
  #     - ./snapclient.conf:/etc/default/snapclient
  #     - /var/run/dbus:/var/run/dbus 
