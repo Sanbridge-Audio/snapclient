@@ -8,6 +8,8 @@ RUN apt-get update && apt-get install -y \
 
 RUN useradd -ms /bin/bash snapclient
 
+
+RUN usermod -aG sudo snapclient 
 USER snapclient
 
 ENV PULSE_SERVER=unix:/run/user/1000/pulse/native
