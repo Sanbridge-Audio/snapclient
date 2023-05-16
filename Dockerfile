@@ -19,6 +19,10 @@ ENV TZ=America/New_York
 # ENV SNAPCLIENT_SOUNDCARD "" 
 # ENV SNAPCLIENT_HOST "" 
 # ENV HOSTID "" 
+
+RUN apt-get update && apt-get install -y avahi-daemon
+RUN service avahi-daemon start
+
   
 CMD /bin/bash -c "snapclient && avahi-daemon -D"
  
