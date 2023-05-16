@@ -5,7 +5,8 @@ ENV PULSE_SINK=snapcast
 ENV TZ=America/New_York
 
 RUN apt-get update && \
-    apt-get install -y # --no-install-recommends \
+    apt-get install -y 
+# --no-install-recommends \
     snapclient \
     pulseaudio-utils \
     pulseaudio && \
