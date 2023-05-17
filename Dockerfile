@@ -13,10 +13,9 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 #CMD ["snapclient", "-d"]
-ENV TZ=America/New_York 
-ENV SNAPCLIENT_SOUNDCARD sysdefault
-ENV SNAPCLIENT_HOST 192.168.1.198
-ENV HOSTID "" 
+#ENV SNAPCLIENT_SOUNDCARD sysdefault
+#ENV SNAPCLIENT_HOST 192.168.1.198
+#ENV HOSTID "" 
 #"Pulse"
 #ENV CLIENTNAME "Desktop"
   

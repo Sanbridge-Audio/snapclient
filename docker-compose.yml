@@ -15,11 +15,9 @@ services:
       - /dev/snd:/dev/snd
     environment:
       - TZ=America/New_York
- #     - SNAPCLIENT_SOUNDCARD=""
- #     - SNAPCLIENT_HOST=192.168.1.198
+      - SNAPCLIENT_SOUNDCARD=sysdefault
       - HOSTID=Trying
       - SNAPCLIENT_HOST=192.168.1.198
       - CLIENTNAME="Desktop Trial" 
  #     - PULSE_SERVER=unix:/run/user/1000/pulse/native
  #     - PULSE_SINK=snapcast
-#    image: mini-snapclient
