@@ -1,23 +1,75 @@
-FROM debian:stable-slim
+FROM debian:stable AS snapbase
+LABEL maintainer "Matt Dickinson"
 
-ENV PULSE_SERVER=unix:/run/user/1000/pulse/native
-ENV PULSE_SINK=snapcast
-ENV TZ=America/New_York
+#Installation of everything needed to setup snapcast
+RUN apt-get update && apt-get install -y \
+	alsa-utils \
+	avahi-daemon \
+	ccache \
+	cmake \
+	build-essential \
+	git \
+	libasound2-dev \
+	libpulse-dev \
+	libvorbisidec-dev \
+	libvorbis-dev \
+	libopus-dev \
+	libflac-dev \
+	libsoxr-dev \
+	libavahi-client-dev \
+	libexpat1-dev \
+	libboost-all-dev \
+	wget
 
-RUN apt-get update && \
-    apt-get install -y \
-# --no-install-recommends \
-    snapclient \
-    pulseaudio-utils \
-    pulseaudio && \
-    rm -rf /var/lib/apt/lists/*
+#RUN git clone https://github.com/badaix/snapcast.git 
+#&& \
+#  cd snapcast 
+ 
+#WORKDIR /snapcast/client
 
-#CMD ["snapclient", "-d"]
-#ENV SNAPCLIENT_SOUNDCARD sysdefault
-#ENV SNAPCLIENT_HOST 192.168.1.198
-#ENV HOSTID "" 
-#"Pulse"
-#ENV CLIENTNAME "Desktop"
+
+#RUN make
+#RUN make installclient
+WORKDIR /tmp
+RUN wget https://github.com/badaix/snapcast/releases/download/v0.27.0/snapclient_0.27.0-1_without-pulse_armhf.deb
+RUN dpkg -i snapclient_0.27.0-1_without-pulse_armhf.deb
+RUN apt -f install
+
+FROM debian:stable-slim AS config
+ARG S6_OVERLAY_VERSION=3.1.4.2
+#ARG TARGETARCH=armv7l
+ENV ARCH=armhf
+
+RUN apt-get update && apt-get install -y \
+	alsa-utils \
+	avahi-daemon \
+	git \
+	libasound2-dev \
+	libpulse-dev \
+	libvorbisidec-dev \
+	libvorbis-dev \
+	libopus-dev \
+	libflac-dev \
+	libsoxr-dev \
+	libavahi-client-dev \
+	libexpat1-dev \
+	mosquitto-clients \
+	nano \
+	wget \
+	xz-utils \
+	gcc
+
+
+WORKDIR /
+
+ADD https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-noarch.tar.xz /tmp
+RUN tar -C / -Jxpf /tmp/s6-overlay-noarch.tar.xz
+ADD https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-${ARCH}.tar.xz /tmp
+RUN tar -C / -Jxpf /tmp/s6-overlay-${ARCH}.tar.xz
+
+WORKDIR /
+
+COPY --from=snapbase /usr/bin/snapclient /usr/bin
   
   
  CMD snapclient \ 
