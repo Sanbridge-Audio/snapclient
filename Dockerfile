@@ -6,7 +6,7 @@ ENV TZ=America/New_York
 
 RUN apt-get update && \
     apt-get install -y \
-# --no-install-recommends \
+ --no-install-recommends \
     snapclient \
     pulseaudio-utils \
     pulseaudio && \
