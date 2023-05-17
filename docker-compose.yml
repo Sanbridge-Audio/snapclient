@@ -13,8 +13,8 @@ services:
  #     - /var/run/avahi-daemon/socket:/var/run/avahi-daemon/socket
     devices:
       - /dev/snd:/dev/snd
- #   environment:
- #     - TZ=America/New_York
+    environment:
+      - TZ=America/New_York
  #     - SNAPCLIENT_SOUNDCARD=""
  #     - SNAPCLIENT_HOST=192.168.1.198
  #     - HOSTID="Pulse" 
