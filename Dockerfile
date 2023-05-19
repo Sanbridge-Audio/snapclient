@@ -12,6 +12,8 @@ RUN apt-get update && \
     pulseaudio && \
     rm -rf /var/lib/apt/lists/*
 
+ARG S6_OVERLAY_VERSION=3.1.4.2
+
 #CMD ["snapclient", "-d"]
 #ENV SNAPCLIENT_SOUNDCARD sysdefault
 #ENV SNAPCLIENT_HOST 192.168.1.198
