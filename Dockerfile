@@ -9,6 +9,9 @@ RUN apt-get update && \
  --no-install-recommends \
     snapclient \
     pulseaudio-utils \
+    nano \
+	wget \
+	xz-utils \
     pulseaudio && \
     rm -rf /var/lib/apt/lists/*
 
